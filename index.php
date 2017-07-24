@@ -6,7 +6,21 @@
  * Time: 21:52
  */
 
-define('FRAMEWORK_PATH', __DIR__ . '/framework');
-define('APPLICATION_PATH', __DIR__ . '/application');
-
-include_once 'lib/session.php';
+define('MODULE_PATH', __DIR__ . '/module');
+define('DB_PATH', __DIR__ . '/module/core/db');
+define('CONF_PATH', __DIR__ . '/module/core/config');
+define('LIB_PATH', __DIR__ . '/lib');
+define('HELPER_PATH', __DIR__ . '/helper');
+define('PUBLIC_PATH', __DIR__ . '/public');
+include_once HELPER_PATH . '/user_helper.php';
+if (!isLogged()){
+	require_once MODULE_PATH . '/common/login.php';
+} else {
+	require_once HELPER_PATH . '/conf_helper.php';
+	$action = empty($_GET['a']) ? 'main': $_GET['a'];
+	$module = empty($_GET['m']) ? 'common': $_GET['m'];
+	$path = MODULE_PATH . "/$module/$action.php";
+	if (file_exists($path))
+		require_once $path;
+	else die("Bad request!");
+}
