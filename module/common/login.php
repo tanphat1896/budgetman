@@ -27,6 +27,11 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH'])
 <head>
 	<meta charset="UTF-8">
 	<style>
+        
+        body{
+            background-color: #337ab7;
+        }
+        
 		.container{
 			padding: 20px;
 			font-family: sans-serif;
@@ -34,13 +39,22 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH'])
 			text-align: center;
 		}
 		.login-div{
-			padding-top: 100px;
+			/*padding-top: 100px;*/
 			margin: auto;
 			width: 500px;
 			height: 100px;
 			text-align: center;
 			transition: box-shadow 0.5s;
 		}
+
+        .banner{
+            background-color: #337ab7;
+            font-family: sans-serif;
+            margin-top: 150px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #fff;
+        }
 
 		input{
 			width: 300px;
@@ -53,20 +67,23 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH'])
 
 		input:focus{
 			outline-width: 0;
-			box-shadow: 0 0 5px #337ab7;
+			box-shadow: 0 0 5px #fff;
 		}
 
 		.btn{
 			border-radius: 15px;
 			padding: 7px 20px;
 			background-color: #337AB7;
-			border: none;
+			border: 1px solid #fff;
+			box-shadow: 0 0 3px #fff;
 			color: #fff;
 			font-weight: bold;
 		}
 
 		.btn:hover{
 			cursor: hand !important;
+            background-color: #fff;
+            color: #337ab7;
 		}
 
 		.form-control{
@@ -90,6 +107,9 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH'])
 	</style>
 </head>
 <body>
+<div class="banner">
+    <h2>Đăng nhập để bắt đầu</h2>
+</div>
 <div class="container">
 	<div class="login-div">
 		<form method="post" id="frm-login">

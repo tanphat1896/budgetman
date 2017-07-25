@@ -15,6 +15,9 @@ require_once MODULE_PATH . '/widget/header.php';
 <!--module detail-->
 <?php require_once MODULE_PATH . '/detail/list.php'; ?>
 
+<!--module item-->
+<?php require_once MODULE_PATH . '/item/list.php'; ?>
+
 
 <!--module budget-->
 <div class="container" id="budget">

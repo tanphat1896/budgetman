@@ -24,3 +24,9 @@ if (!isLogged()){
 		require_once $path;
 	else die("Bad request!");
 }
+//
+//include_once DB_PATH . '/detail_db.php';
+//include_once LIB_PATH . '/pagination.php';
+//include_once HELPER_PATH . '/url_helper.php';
+//
+//var_dump(addDetail(2, "2017-2-1", 2, 10));

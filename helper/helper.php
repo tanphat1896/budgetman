@@ -12,3 +12,7 @@ if (!defined('MODULE_PATH'))
 function getPOSTValue($key){
 	return isset($_POST[$key]) ? $_POST[$key]: false;
 }
+
+function getGETValue($key){
+	return isset($_GET[$key]) ? $_GET[$key]: false;
+}

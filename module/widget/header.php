@@ -16,6 +16,7 @@ if (!defined('MODULE_PATH'))
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Budget management</title>
 	<link rel="stylesheet" type="text/css" href="<?php echo getBaseUrl(); ?>/public/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo getBaseUrl(); ?>/public/css/style.css">
 	<style type="text/css">
 		body {
 			min-height: 1000px;
@@ -36,9 +37,9 @@ if (!defined('MODULE_PATH'))
 			background-color: #fff !important;
 		}
 
-		.container{
-			padding: 50px 25px;
-		}
+		/*.container{*/
+			/*padding: 50px 25px;*/
+		/*}*/
 
 		.navbar .container{
 			padding: inherit;
@@ -99,6 +100,7 @@ if (!defined('MODULE_PATH'))
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="#home">Home</a></li>
 				<li><a href="#detail">Khoản chi</a></li>
+				<li><a href="#item">Mục chi</a></li>
 				<li><a href="#budget">Tài chính</a></li>
 				<li><a href="#" id="logout">
 						<span class="glyphicon glyphicon-log-out"></span>

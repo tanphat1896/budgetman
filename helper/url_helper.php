@@ -14,3 +14,18 @@ function redirect($url){
 	header("Location: $url");
 	die();
 }
+
+function getDetailUrl($action){
+	require_once HELPER_PATH . '/conf_helper.php';
+	return getBaseUrl() . "?m=detail&a=$action";
+}
+
+function getItemUrl($action){
+	require_once HELPER_PATH . '/conf_helper.php';
+	return getBaseUrl() . "?m=item&a=$action";
+}
+
+function getBudgetUrl($action){
+	require_once HELPER_PATH . '/conf_helper.php';
+	return getBaseUrl() . "?m=budget&a=$action";
+}
