@@ -26,7 +26,10 @@ if (!isLogged()){
 }
 //
 //include_once DB_PATH . '/detail_db.php';
+//include_once DB_PATH . '/budget_db.php';
 //include_once LIB_PATH . '/pagination.php';
 //include_once HELPER_PATH . '/url_helper.php';
-//
+
 //var_dump(addDetail(2, "2017-2-1", 2, 10));
+//var_dump(addBudget(-20000, '2017-2-8'));
+//var_dump(addNewBudget(220000, '2017-2-8'));

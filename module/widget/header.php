@@ -14,12 +14,13 @@ if (!defined('MODULE_PATH'))
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" href="<?php echo getBaseUrl(); ?>/public/favicon.ico">		
 	<title>Budget management</title>
 	<link rel="stylesheet" type="text/css" href="<?php echo getBaseUrl(); ?>/public/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo getBaseUrl(); ?>/public/css/style.css">
 	<style type="text/css">
 		body {
-			min-height: 1000px;
+			/*min-height: 1000px;*/
 		}
 
 		.fill {

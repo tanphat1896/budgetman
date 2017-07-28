@@ -47,6 +47,28 @@ $(function () {
         addNewDetail();
         return false;
     });
+
+    // cập nhật lại khoản chi
+    $('#btn-refresh').click(function (e) {
+        e.preventDefault();
+        getDetailData(baseUrl + "?m=detail&a=list");
+    });
+
+    // nút tìm khoản chi theo ngày
+    $('#btn-search-detail').click(function () {
+        var date = $('[name="search-date"]').val();
+        $.get(
+            baseUrl + "?m=detail&a=search&d=" + date,
+            {},
+            function (rs) {
+                updateDetailList(rs);
+            },
+            'json'
+        ).always(function () {
+            addActionAfter();
+        });
+        return false;
+    });
 });
 
 function updateDetailList(rs){
@@ -61,7 +83,7 @@ function updateDetailList(rs){
         html += "<td>" + item.name + "</td>";
         html += "<td>" + getPeriod(parseInt(item.period)) + "</td>";
         html += "<td>" + item.amount + "</td>";
-        html += "<td>" + calcTotalCost(item.amount, item.price) + "</td>";
+        html += "<td>" + item.cost + "</td>";
         html +=
             "<td>" +
                 "<form  method='post' class='frm-det-del'>" +
@@ -82,7 +104,7 @@ function updateDetailList(rs){
  */
 function addActionAfter() {
     updateDivHeight();
-    $('.pagination a').click(function (e) {
+    $('.pagination li a').click(function (e) {
         e.preventDefault();
         getDetailData(this.href);
     });
@@ -108,6 +130,8 @@ function addActionAfter() {
                         if (isNaN(currentPage))
                             currentPage = 1;
                         getDetailData(baseUrl + "?m=detail&a=list&p=" + currentPage);
+                        getBudgetData(baseUrl + "?m=budget&a=list");
+
                     }
                 }
             });
@@ -120,12 +144,26 @@ function getDetailData(url){
         url,
         {},
         function (rs) {
+            // console.log(rs);
             updateDetailList(rs);
+            getRemainBudget();
         },
         'json'
     ).always(function () {
         addActionAfter();
     });
+}
+
+function getRemainBudget(){
+    $.get(
+        baseUrl + "?m=budget&a=get_remain",
+        {},
+        function (rs) {
+            if (rs.hasOwnProperty('remain'))
+                $('#remain-budget').text(rs.remain + " vnđ");
+        },
+        'json'
+    );
 }
 
 function updateChosenList(rs){
@@ -159,10 +197,6 @@ function getPeriod(period){
     return periods[period-1];
 }
 
-function calcTotalCost(amount, price){
-    return parseInt(amount) * parseInt(price);
-}
-
 function addNewDetail(){
     // lấy dữ liệu
     var itemId = $('[name="detail-item-id"]').val();
@@ -190,8 +224,9 @@ function addNewDetail(){
             amount: amount
         },
         success: function (rs) {
-            console.log(rs);
+            // console.log(rs);
             getDetailData(baseUrl + "?m=detail&a=list");
+            getBudgetData(baseUrl + "?m=budget&a=list");
         }
     }).always(function () {
         $('#detail-item-name-err').css('color', '#fff');

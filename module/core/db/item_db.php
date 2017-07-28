@@ -17,6 +17,13 @@ function getTotalItemRecord(){
 	return $dataProvider->getRow($sql)['total'];
 }
 
+function getItem($id){
+	global $dataProvider;
+	$id = (int)$id;
+	$sql = "select * from item where id = $id";
+	return $dataProvider->getRow($sql);
+}
+
 function getItemList($recordStart, $limit = 0){
 	global $dataProvider;
 	$sql = "select * from item";

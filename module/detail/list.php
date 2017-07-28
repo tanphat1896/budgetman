@@ -41,6 +41,9 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) &&
 		<button class="btn btn-primary" id="btn-search" >
 			<span class="glyphicon glyphicon-search"></span>
 		</button>
+		<button class="btn btn-warning" id="btn-refresh" >
+			<span class="glyphicon glyphicon-refresh"></span>
+		</button>
 	</div>
 	<div class="row" id="search-div" style="display: none;">
 		<div class="col-sm-offset-4 col-sm-4">
@@ -67,8 +70,8 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) &&
 			<form id="frm-add-detail">
 				<div class="form-group">
 					<label>Mục chi</label>
+                    <input type="hidden" name="detail-item-id" value="0">
 					<div class="input-group">
-                        <input type="hidden" name="detail-item-id" value="0">
                         <input type="text" required readonly name="detail-item-name" class="form-control">
                         <div class="input-group-btn">
                             <button id="btn-choose-item" class="btn btn-primary">
@@ -121,6 +124,7 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) &&
             </select>
         </div>
 	</div>
+    <h4 >Còn lại: <span id="remain-budget" class="text-primary"></span></h4>
 	<div class="row text-center" id="detail-list">
 	</div>
 </div>
